@@ -10,13 +10,13 @@ const app = express();
 
 connectDB();
 
-app.use(
-  cors({
-    origin: "http://localhost:3000",
-  })
-);
+app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
+
+app.get("/hi", (req, res) => {
+  res.json("welcome to our server");
+});
 
 app.use("/api/todos", todoroutes);
 
